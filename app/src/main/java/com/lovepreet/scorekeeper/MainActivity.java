@@ -1,9 +1,3 @@
-// Name : Lovepreet Kaur
-// Student Id: A00238391
-// Assignment 5 : Events
-
-
-
 package com.lovepreet.scorekeeper;
 
 
@@ -16,8 +10,9 @@ package com.lovepreet.scorekeeper;
         import android.widget.RadioGroup;
         import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
-    // declaring components
+public class MainActivity extends AppCompatActivity
+        implements RadioGroup.OnCheckedChangeListener,
+        View.OnClickListener {
     private TextView teamScoreRedTextView;
     private TextView teamScoreBlueTextView;
 
@@ -34,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         teamBlueScore = 0;
 
         //finding all the views by ids, refer to the xml page for the ids,
-        
+
         RadioGroup radioGroup = findViewById(R.id.radio_group);
 
         teamScoreRedTextView = findViewById(R.id.team_score_red);
@@ -55,10 +50,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         upButtonBlue.setOnClickListener(this);
         downButtonBlue.setOnClickListener(this);
     }
-// setting on click for radio buttons
+
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        
+        //selecting the increment value using the radio button
         switch (i){
             case 1:
                 incrementBy = 1;
@@ -71,11 +66,12 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
         }
     }
- //setting on click buttons to perform the  respective functions 
+
     @Override
     public void onClick(View view) {
         int id = view.getId();
-          switch (id){
+        //according to the buttons clicked the respective functions are performed
+        switch (id){
             case R.id.buttonUp_blue:
                 teamBlueScore += incrementBy;
                 teamScoreBlueTextView.setText(Integer.toString(teamBlueScore));
